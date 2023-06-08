@@ -1,0 +1,286 @@
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+matchLongest false
+span:
+
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  asd
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+rule candidate Punct
+matchLongest false
+span:  (
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  fas
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+rule candidate Punct
+matchLongest false
+span:  )
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  dfsa
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+matchLongest false
+span:
+
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  fsadfa
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+rule candidate Punct
+matchLongest false
+span:  ,
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+matchLongest false
+span:
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  sdfsadf
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+matchLongest false
+span:
+
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  fasdf
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  "safd
+@enum("
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  hello
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+rule candidate Punct
+rule candidate FuncName
+rule candidate Other
+matchLongest false
+span:  :world","foo:bar","say:if", "hello:fsafsadf",
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+matchLongest false
+span:
+
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  "num:1"
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+rule candidate Punct
+matchLongest false
+span:  )
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+matchLongest false
+span:
+
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  asdfafasdfasdfasd
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+matchLongest false
+span:
+
+rule candidate whitespace
+rule candidate String
+rule candidate Punct
+rule candidate FuncName
+matchLongest false
+span:  @copy
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+rule candidate Punct
+matchLongest false
+span:  (
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  "fsdafasf:fdsafas"
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+rule candidate Punct
+matchLongest false
+span:  ,
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+matchLongest false
+span:
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  "fsdfa:fasdfa"
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+rule candidate Punct
+matchLongest false
+span:  )
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+matchLongest false
+span:
+
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  dsafs
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  "dafasdfasd
+asdfsa"
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+rule candidate String
+matchLongest false
+span:  dfsadf
+parent:  Root
+rules [{{whitespace \s+ <nil>} true ^(?:\s+)} {{String "(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+ <nil>} false ^(?:"(\\.|[^"])*"|'(\\.|[^'])*'|[a-z]+)} {{Punct [)(,] <nil>} false ^(?:[)(,])} {{FuncName ^@[a-zA-Z][a-zA-Z_\d]* <nil>} fals
+e ^(?:^@[a-zA-Z][a-zA-Z_\d]*)} {{Other ^[^@].+ <nil>} false ^(?:^[^@].+)}]
+rule candidate whitespace
+matchLongest false
+span:
+
+span:
+
+[asd ( fas ) dfsa fsadfa , sdfsadf fasdf "safd
+@enum(" hello :world","foo:bar","say:if", "hello:fsafsadf", "num:1" ) asdfafasdf
+asdfasd @copy ( "fsdafasf:fdsafas" , "fsdfa:fasdfa" ) dsafs "dafasdfasd
+asdfsa" dfsadf <EOF>]
+line:  asd
+line:  (
+line:  fas
+line:  )
+line:  dfsa
+line:  fsadfa
+line:  ,
+line:  sdfsadf
+line:  fasdf
+line:  "safd
+@enum("
+line:  hello
+line:  :world","foo:bar","say:if", "hello:fsafsadf",
+line:  "num:1"
+line:  )
+line:  asdfafasdfasdfasd
+line:  @copy
+line:  (
+line:  "fsdafasf:fdsafas"
+line:  ,
+line:  "fsdfa:fasdfa"
+line:  )
+line:  dsafs
+line:  "dafasdfasd
+asdfsa"
+line:  dfsadf
+line:  <EOF>
+&main.Entry{
+}
+
+// 正确的
+
+line:  asd(fas)dfsa
+line:  fsadfa, sdfsadf
+line:  fasdf"safd
+line:  @enum
+line:  (
+line:  "hello:world"
+line:  ,
+line:  "foo:bar"
+line:  ,
+line:  "say:if"
+line:  ,
+line:  "hello:fsafsadf"
+line:  ,
+line:  "num:1"
+line:  )
+line:  asdfafasdfasdfasd
+line:  @copy
+line:  (
+line:  "fsdafasf:fdsafas"
+line:  ,
+line:  "fsdfa:fasdfa"
+line:  )
+line:  dsafs"dafasdfasd
+line:  asdfsa"dfsadf
+line:  <EOF>
