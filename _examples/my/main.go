@@ -11,12 +11,13 @@ import (
 // as use of the Unquote filter, which unquotes string tokens.
 var (
 	iniLexer = lexer.MustSimple([]lexer.SimpleRule{
-		{"whitespace", `[ \t]+`},
-		{"Other", `[^(\n@)]+`},
+		{"whitespace", `\s+`},
+		{"Punct", `[,)(]`},
 		{"FuncName", `^@[a-zA-Z][a-zA-Z_\d]*`},
-		{"String", `"(\\.|[^"])*"|'(\\.|[^'])*'|.*`},
-		{"Punct", `[)(,]`},
+		{"String", `"(\\.|[^"])*"|'(\\.|[^'])*'`},
+		{"Ident", `[^ \f\n\r\t\v,]+`},
 	})
+
 	parser = participle.MustBuild[Entry](
 		participle.Lexer(iniLexer),
 	)
@@ -27,13 +28,13 @@ type Entry struct {
 }
 
 type Func struct {
-	Others *string `@Other`
+	Others *string `@~FuncName`
 	Func   *F      `| @@`
 }
 
 type F struct {
 	FuncName string   `@FuncName`
-	Args     []string `"(" @String ("," @String)* ")"`
+	Args     []string `"(" (@String | @Ident) ("," (@String | @Ident))* ")"`
 }
 
 type Map struct {
@@ -69,7 +70,7 @@ func main() {
 asd(fas)dfsa
 fsadfa, sdfsadf
 fasdf"safd
-@enum("hello:world","foo:bar","say:if", "hello:fsafsadf",
+@enum("hello:world","foo:bar","say:if", "hello:fsafsadf", boweian,
 "num:1")
 asdfafasdfasdfasd
  @copy("fsdafasf:fdsafas", "fsdfa:fasdfa")
