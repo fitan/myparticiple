@@ -10,12 +10,22 @@ import (
 // A custom lexer for INI files. This illustrates a relatively complex Regexp lexer, as well
 // as use of the Unquote filter, which unquotes string tokens.
 var (
+	//enumLexer = lexer.MustSimple([]lexer.SimpleRule{
+	//	{"whitespace", `\s+`},
+	//	{"Punct", `[,)(]`},
+	//	{"FuncName", `^@[a-zA-Z][a-zA-Z_\d]*`},
+	//	//{"FuncTag", `^@[a-zA-Z][a-zA-Z_\d]*\(`},
+	//	{"String", `"(\\.|[^"])*"|'(\\.|[^'])*'`},
+	//	{"Ident", `[^ \f\n\r\t\v,)]+`},
+	//})
 	iniLexer = lexer.MustSimple([]lexer.SimpleRule{
-		{"whitespace", `\s+`},
-		{"Punct", `[,)(]`},
-		{"FuncName", `^@[a-zA-Z][a-zA-Z_\d]*`},
+		{"Whitespace", `\s+`},
+		{"Punct", `[,)(]@`},
+		{"FuncName", `@[a-zA-Z][a-zA-Z_\d]*`},
 		{"String", `"(\\.|[^"])*"|'(\\.|[^'])*'`},
-		{"Ident", `[^ \f\n\r\t\v,]+`},
+		{"SQ", `(\\.|[^'])*`},
+		{"DQ", `(\\.|[^"])*`},
+		{"Ident", `[^ \f\n\r\t\v]+`},
 	})
 
 	parser = participle.MustBuild[Entry](
@@ -28,13 +38,16 @@ type Entry struct {
 }
 
 type Func struct {
-	Others *string `@~FuncName`
-	Func   *F      `| @@`
+	Others *string `@~FuncName (?! "@")`
+	//Others *string `@~FuncName`
+	Func *F `| @@`
 }
 
 type F struct {
-	FuncName string   `@FuncName`
-	Args     []string `"(" (@String | @Ident) ("," (@String | @Ident))* ")"`
+	FuncName string `@FuncName`
+	//Args     []string `"(" ( ( "\"" @Ident "\"") | @Ident) ("," ( ( "\"" @Ident "\"") | @Ident))* ")"`
+	Args []string `( "(" ( "\"" @DQ "\"" | "'" @SQ "'" | @Ident ) ("," ( "\"" @DQ "\"" | "'" @SQ "'" | @Ident ) )* ")" )?`
+	//Args []string `( "(" "\"" @DQ "\"" | "\'" @SQ "\'" | @Ident ")" )?`
 }
 
 type Map struct {
@@ -70,7 +83,8 @@ func main() {
 asd(fas)dfsa
 fsadfa, sdfsadf
 fasdf"safd
-@enum("hello:world","foo:bar","say:if", "hello:fsafsadf", boweian,
+@say hello work
+@enum("hello:world","foo:bar",'say:if', "hello:fsafsadf", boweian,
 "num:1")
 asdfafasdfasdfasd
  @copy("fsdafasf:fdsafas", "fsdfa:fasdfa")
