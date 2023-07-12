@@ -41,9 +41,8 @@ func Upgrade(lex Lexer, elide ...TokenType) (*PeekingLexer, error) {
 			break
 		}
 	}
-	fmt.Println(r.tokens)
 	for _, v := range r.tokens {
-		fmt.Println("line: ", v.String())
+		fmt.Println("token line: ", `"`+v.String()+`"`)
 	}
 	r.advanceToNonElided()
 	return r, nil

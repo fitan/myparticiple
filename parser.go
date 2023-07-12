@@ -252,7 +252,6 @@ func (p *Parser[G]) parseOne(ctx *parseContext, parseNode node, rv reflect.Value
 		return err
 	}
 	token := ctx.Peek()
-	fmt.Println("this is ctx.Peek")
 	fmt.Println("token.EOF: ", token.EOF(), "ctx.allowTrailing", ctx.allowTrailing)
 	if !token.EOF() && !ctx.allowTrailing {
 		return ctx.DeepestError(&UnexpectedTokenError{Unexpected: *token})

@@ -20,7 +20,8 @@ var (
 	//})
 	iniLexer = lexer.MustSimple([]lexer.SimpleRule{
 		{"Whitespace", `\s+`},
-		{"Punct", `[,)(]@`},
+		{"Punct", `[,)(]`},
+		{"Other", `[^ \f\n\r\t\v@]+`},
 		{"FuncName", `@[a-zA-Z][a-zA-Z_\d]*`},
 		{"String", `"(\\.|[^"])*"|'(\\.|[^'])*'`},
 		{"SQ", `(\\.|[^'])*`},
@@ -38,7 +39,7 @@ type Entry struct {
 }
 
 type Func struct {
-	Others *string `@~FuncName (?! "@")`
+	Others *string `@Other`
 	//Others *string `@~FuncName`
 	Func *F `| @@`
 }
@@ -84,8 +85,7 @@ asd(fas)dfsa
 fsadfa, sdfsadf
 fasdf"safd
 @say hello work
-@enum("hello:world","foo:bar",'say:if', "hello:fsafsadf", boweian,
-"num:1")
+@enum("hello:world","foo:bar",'say:if',"hello:fsafsadf", boweian,"num:1")
 asdfafasdfasdfasd
  @copy("fsdafasf:fdsafas", "fsdfa:fasdfa")
 dsafs"dafasdfasd

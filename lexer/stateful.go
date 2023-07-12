@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log"
 	"regexp"
 	"sort"
 	"strconv"
@@ -364,9 +365,8 @@ type StatefulLexer struct {
 
 func (l *StatefulLexer) Next() (Token, error) { // nolint: golint
 	parent := l.stack[len(l.stack)-1]
-	fmt.Println("parent: ", parent.name)
+	fmt.Println("Next: ", parent.name)
 	rules := l.def.rules[parent.name]
-	fmt.Println("rules", rules)
 next:
 	for len(l.data) > 0 {
 		var (
@@ -375,7 +375,7 @@ next:
 			match []int
 		)
 		for i, candidate := range rules {
-			fmt.Println("rule candidate", candidate.Name)
+			log.Println("rule candidate", candidate.Name)
 			// Special case "Return()".
 			if candidate.Rule == ReturnRule {
 				l.stack = l.stack[:len(l.stack)-1]
@@ -391,7 +391,7 @@ next:
 			if m != nil && (match == nil || m[1] > match[1]) {
 				match = m
 				rule = &rules[i]
-				fmt.Println("matchLongest", l.def.matchLongest)
+				log.Println("matchLongest", l.def.matchLongest, "match", match, "name", candidate.Name)
 				if !l.def.matchLongest {
 					break
 				}
@@ -418,7 +418,7 @@ next:
 		}
 
 		span := l.data[match[0]:match[1]]
-		fmt.Println("span: ", span)
+		log.Println("span", `"`+span+`"`, "rule", rule.Name)
 		l.data = l.data[match[1]:]
 		// l.groups = groups
 
