@@ -245,8 +245,20 @@ func (p *Parser[G]) ParseBytes(filename string, b []byte, options ...ParseOption
 	return p.parse(lex, options...)
 }
 
+var globSymbols map[string]lexer.TokenType
+
+func globSymbolsToString(t lexer.TokenType) string {
+	for k, v := range globSymbols {
+		if v == t {
+			return k
+		}
+	}
+	return "未知"
+}
+
 func (p *Parser[G]) parseOne(ctx *parseContext, parseNode node, rv reflect.Value) error {
 	fmt.Println("symbols", p.lex.Symbols())
+	globSymbols = p.lex.Symbols()
 	err := p.parseInto(ctx, parseNode, rv)
 	if err != nil {
 		return err

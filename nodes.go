@@ -4,6 +4,7 @@ import (
 	"encoding"
 	"errors"
 	"fmt"
+	"log"
 	"reflect"
 	"strconv"
 	"strings"
@@ -435,7 +436,8 @@ func (r *reference) Parse(ctx *parseContext, parent reflect.Value) (out []reflec
 	token, cursor := ctx.PeekAny(func(t lexer.Token) bool {
 		return t.Type == r.typ
 	})
-	fmt.Println("reference parse: ", token.String(), token.Type, r.typ)
+
+	log.Printf("reference parse: %s. tokenType: %v refType: %v \n", token.String(), globSymbolsToString(token.Type), globSymbolsToString(r.typ))
 	if token.Type != r.typ {
 		return nil, nil
 	}

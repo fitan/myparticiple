@@ -1,7 +1,5 @@
 package lexer
 
-import "fmt"
-
 // PeekingLexer supports arbitrary lookahead as well as cloning.
 type PeekingLexer struct {
 	Checkpoint
@@ -40,9 +38,6 @@ func Upgrade(lex Lexer, elide ...TokenType) (*PeekingLexer, error) {
 		if t.EOF() {
 			break
 		}
-	}
-	for _, v := range r.tokens {
-		fmt.Println("token line: ", `"`+v.String()+`"`)
 	}
 	r.advanceToNonElided()
 	return r, nil

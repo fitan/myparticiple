@@ -364,8 +364,8 @@ type StatefulLexer struct {
 }
 
 func (l *StatefulLexer) Next() (Token, error) { // nolint: golint
+	log.Println("Next()")
 	parent := l.stack[len(l.stack)-1]
-	fmt.Println("Next: ", parent.name)
 	rules := l.def.rules[parent.name]
 next:
 	for len(l.data) > 0 {
@@ -388,10 +388,15 @@ next:
 				return Token{}, errorf(l.pos, "rule %q: %s", candidate.Name, err)
 			}
 			m = re.FindStringSubmatchIndex(l.data)
+			matchName := make([]string, 0)
+			for index, _ := range match {
+				matchName = append(matchName, rules[index].Name)
+			}
+			log.Println("re.FindStringSubmatchIndex", "data", l.data, "match", matchName)
 			if m != nil && (match == nil || m[1] > match[1]) {
 				match = m
 				rule = &rules[i]
-				log.Println("matchLongest", l.def.matchLongest, "match", match, "name", candidate.Name)
+				log.Println("matchLongest", l.def.matchLongest, "match", matchName, "name", candidate.Name)
 				if !l.def.matchLongest {
 					break
 				}

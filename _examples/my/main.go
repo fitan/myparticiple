@@ -19,14 +19,22 @@ var (
 	//	{"Ident", `[^ \f\n\r\t\v,)]+`},
 	//})
 	iniLexer = lexer.MustSimple([]lexer.SimpleRule{
-		{"Whitespace", `\s+`},
-		{"Punct", `[,)(]`},
-		{"Other", `[^ \f\n\r\t\v@]+`},
-		{"FuncName", `@[a-zA-Z][a-zA-Z_\d]*`},
+		//{"Whitespace", `\s+`},
+		//{"Punct", `[,)(]`},
+		//{"Other", `[^@]+`},
+		//{"FuncName", `@[a-zA-Z][a-zA-Z_\d]*`},
+		//{"String", `"(\\.|[^"])*"|'(\\.|[^'])*'`},
+		//{"SQ", `(\\.|[^'])*`},
+		//{"DQ", `(\\.|[^"])*`},
+		//{"Ident", `[^ \f\n\r\t\v]+`},
+		{"whitespace", `\s+`},
+		{"Punct", `[,()]`},
+		{"FuncName", `^@[a-zA-Z][a-zA-Z_\d]*`},
+		//{"FuncTag", `^@[a-zA-Z][a-zA-Z_\d]*\(`},
 		{"String", `"(\\.|[^"])*"|'(\\.|[^'])*'`},
-		{"SQ", `(\\.|[^'])*`},
-		{"DQ", `(\\.|[^"])*`},
-		{"Ident", `[^ \f\n\r\t\v]+`},
+		//{"DQ", `(\\.|[^"])+`},
+		//{"SQ", `'(\\.|[^'])+'`},
+		{"Ident", `[^ \f\n\r\t\v,)]+`},
 	})
 
 	parser = participle.MustBuild[Entry](
@@ -39,16 +47,25 @@ type Entry struct {
 }
 
 type Func struct {
-	Others *string `@Other`
-	//Others *string `@~FuncName`
-	Func *F `| @@`
+	Others *string `@~FuncName`
+	Func   *F      `| @@`
 }
 
+//type F struct {
+//	FuncName string   `@FuncName`
+//	Args     []string `( "(" ( "\"" @DQ "\"" | @SQ | @Ident) ("," ( "\"" @DQ "\"" | @SQ | @Ident))* ")" )?`
+//	//Args []string `( "(" ( ( "\"" @Ident "\"") | ( "'" @Ident "'" ) | @Ident ) ("," ( ( "\"" @Ident "\"") | ( "'" @Ident "'" ) | @Ident ) )* ")" )?`
+//	//Args []string `"(" ( ( "\"" @Ident "\"") |  @Ident ) ("," ( ( "\"" @Ident "\"") |  @Ident ) )* ")"`
+//}
+
+//	type Func struct {
+//		Others *string `@Other`
+//		//Others *string `@~FuncName`
+//		Func *F `| @@`
+//	}
 type F struct {
-	FuncName string `@FuncName`
-	//Args     []string `"(" ( ( "\"" @Ident "\"") | @Ident) ("," ( ( "\"" @Ident "\"") | @Ident))* ")"`
-	Args []string `( "(" ( "\"" @DQ "\"" | "'" @SQ "'" | @Ident ) ("," ( "\"" @DQ "\"" | "'" @SQ "'" | @Ident ) )* ")" )?`
-	//Args []string `( "(" "\"" @DQ "\"" | "\'" @SQ "\'" | @Ident ")" )?`
+	FuncName string   `@FuncName`
+	Args     []string `( "(" (@String | @Ident) ("," (@String | @Ident))* ")" )?`
 }
 
 type Map struct {
@@ -90,7 +107,7 @@ asdfafasdfasdfasd
  @copy("fsdafasf:fdsafas", "fsdfa:fasdfa")
 dsafs"dafasdfasd
 asdfsa"dfsadf
-	`, participle.Trace(os.Stdout))
+`, participle.Trace(os.Stdout))
 	repr.Println(doc, repr.Indent(" "))
 	if err != nil {
 		panic(err)
